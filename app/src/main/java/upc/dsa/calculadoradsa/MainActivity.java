@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
     Button cos;
     TextView pantalla;
     Button resultado;
+    Button clear;
+    private double val1 = -1;
+    private double val2 = -1;
+    private boolean reoperator = false;
+    private int operator;
 
 
 
@@ -41,70 +47,216 @@ public class MainActivity extends AppCompatActivity {
         cero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "0");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "0");
+                }else{
+
+                    pantalla.setText("" + "0");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         uno.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "1");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "1");
+                }else{
+
+                    pantalla.setText("" + "1");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         dos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "2");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "2");
+                }else{
+
+                    pantalla.setText("" + "2");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         tres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "3");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "3");
+                }else{
+
+                    pantalla.setText("" + "3");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         cuatro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "4");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "4");
+                }else{
+
+                    pantalla.setText("" + "4");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         cinco.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "5");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "5");
+                }else{
+
+                    pantalla.setText("" + "5");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         seis.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "6");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "6");
+                }else{
+
+                    pantalla.setText("" + "6");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         siete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "7");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "7");
+                }else{
+
+                    pantalla.setText("" + "7");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         ocho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "8");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "8");
+                }else{
+
+                    pantalla.setText("" + "8");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
             }
         });
 
         nueve.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pantalla.setText(pantalla.getText().toString() + "9");
+
+                if(esOperacion(pantalla.getText().toString()) == false) {
+
+                    pantalla.setText(pantalla.getText().toString() + "9");
+                }else{
+                    pantalla.setText("" + "9");
+                    val2 = Double.parseDouble(pantalla.getText().toString());
+                }
+            }
+        });
+
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pantalla.setText("");
+                val1 = -1;
+                val2 = -1;
+
+                operator = -1;
+            }
+        });
+
+        resultado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (pantalla.getText().toString().trim().length() == 0){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else{
+
+                    if(val1 == -1){
+                        Toast.makeText(getApplicationContext(),"No ha seleccionado una operación",Toast.LENGTH_SHORT).show();
+
+                    }else if(esOperacion(pantalla.getText().toString()) == true){
+
+                        Toast.makeText(getApplicationContext(),"Selecciona un segundo valor",Toast.LENGTH_SHORT).show();
+
+
+                    }else{
+                        val2 = Double.parseDouble(pantalla.getText().toString());
+                        pantalla.setText("" + hacerOperacion(operator));
+                        val1 = -1;
+                        val2 = -1;
+                        operator = -1;
+
+
+                    }
+
+                }
+
+            }
+        });
+
+        suma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1 == -1){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val2 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    operator = 1;
+                    pantalla.setText("+");
+
+                }
+
             }
         });
 
@@ -134,6 +286,56 @@ public class MainActivity extends AppCompatActivity {
         tan = (Button)findViewById(R.id.tanBtn);
         resultado = (Button)findViewById(R.id.igualBtn);
         pantalla = (TextView)findViewById((R.id.resultadoText));
+        clear = (Button)findViewById(R.id.clearBtn);
+
+    }
+
+    public boolean esOperacion(String pantalla){
+        boolean res;
+        switch(pantalla){
+            case "+":
+                res = true;
+                break;
+            case "-":
+                res = true;
+                break;
+            case "/":
+                res = true;
+                break;
+            case "*":
+                res = true;
+                break;
+            default:
+                res = false;
+        }
+        return res;
+    }
+
+    public double hacerOperacion(int operacion){
+        double ope = 0;
+        String res;
+
+        switch(operacion){
+            case 1:
+                ope = val1 + val2;
+                break;
+            case 2:
+                ope = val1 - val2;
+                break;
+            case 3:
+                ope = val1 * val2;
+                break;
+            case 4:
+                ope = val1 / val2;
+                break;
+            default:
+                ope = -10;
+        }
+
+
+
+        return ope;
+
 
     }
 }
