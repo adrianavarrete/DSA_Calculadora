@@ -30,8 +30,9 @@ public class MainActivity extends AppCompatActivity {
     Button resultado;
     Button clear;
     private double val1 = -1;
+    private boolean val1vacio = true;
     private double val2 = -1;
-    private boolean reoperator = false;
+    private boolean trigo = false;
     private int operator;
 
 
@@ -48,9 +49,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "0");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "0");
@@ -63,9 +69,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "1");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "1");
@@ -78,9 +89,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "2");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "2");
@@ -93,9 +109,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "3");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "3");
@@ -108,9 +129,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "4");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "4");
@@ -123,9 +149,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "5");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "5");
@@ -138,9 +169,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "6");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "6");
@@ -153,9 +189,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "7");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "7");
@@ -168,9 +209,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "8");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
 
                     pantalla.setText("" + "8");
@@ -183,10 +229,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if(esOperacion(pantalla.getText().toString()) == false) {
+                if(esOperacion(pantalla.getText().toString()) == false && trigo == false) {
 
                     pantalla.setText(pantalla.getText().toString() + "9");
+
+                }else if(trigo == true) {
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
+
                     pantalla.setText("" + "9");
                     val2 = Double.parseDouble(pantalla.getText().toString());
                 }
@@ -198,8 +250,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 pantalla.setText("");
                 val1 = -1;
+                val1vacio = true;
                 val2 = -1;
-
+                trigo = false;
                 operator = -1;
             }
         });
@@ -214,7 +267,7 @@ public class MainActivity extends AppCompatActivity {
 
                 }else{
 
-                    if(val1 == -1){
+                    if(val1vacio == true){
                         Toast.makeText(getApplicationContext(),"No ha seleccionado una operación",Toast.LENGTH_SHORT).show();
 
                     }else if(esOperacion(pantalla.getText().toString()) == true){
@@ -222,12 +275,23 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Selecciona un segundo valor",Toast.LENGTH_SHORT).show();
 
 
+                    }else if(trigo == true){
+
+                        pantalla.setText("" + hacerOperacion(operator));
+                        val1= -1;
+                        val1vacio = true;
+                        val2 = -1;
+                        operator = -1;
+                        trigo = false;
+
                     }else{
                         val2 = Double.parseDouble(pantalla.getText().toString());
                         pantalla.setText("" + hacerOperacion(operator));
                         val1 = -1;
+                        val1vacio = true;
                         val2 = -1;
                         operator = -1;
+                        trigo = false;
 
 
                     }
@@ -241,8 +305,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-                if (pantalla.getText().toString().trim().length() == 0 && val1 == -1){
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
 
                     Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
 
@@ -250,10 +313,177 @@ public class MainActivity extends AppCompatActivity {
 
                     Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
 
+                }else if(trigo == true){
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
                 }else{
+
                     val1 = Double.parseDouble(pantalla.getText().toString());
+                    val1vacio = false;
                     operator = 1;
                     pantalla.setText("+");
+
+                }
+
+            }
+        });
+
+        resta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val2 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else if(trigo == true){
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    val1vacio = false;
+                    operator = 2;
+                    pantalla.setText("-");
+
+                }
+
+            }
+        });
+
+        multiplicacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val2 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else if(trigo == true){
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    val1vacio = false;
+                    operator = 3;
+                    pantalla.setText("*");
+
+                }
+
+            }
+        });
+
+        division.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val2 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else if(trigo == true){
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    val1vacio = false;
+                    operator = 4;
+                    pantalla.setText("/");
+
+                }
+
+            }
+        });
+
+        cos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val1 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    trigo = true;
+                    val1vacio = false;
+                    operator = 5;
+                    String rest = pantalla.getText().toString();
+                    pantalla.setText("cos(" + rest + ")");
+
+                }
+
+            }
+        });
+
+        tan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val1 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    trigo = true;
+                    val1vacio = false;
+                    operator = 6;
+                    String rest = pantalla.getText().toString();
+                    pantalla.setText("tan(" + rest + ")");
+
+                }
+
+            }
+        });
+
+        sin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                if (pantalla.getText().toString().trim().length() == 0 && val1vacio == true){
+
+                    Toast.makeText(getApplicationContext(),"No hay número en pantalla",Toast.LENGTH_SHORT).show();
+
+                }else if(val1 != -1){
+
+                    Toast.makeText(getApplicationContext(),"Debes presionar el boton = antes",Toast.LENGTH_SHORT).show();
+
+                }else{
+                    val1 = Double.parseDouble(pantalla.getText().toString());
+                    trigo = true;
+                    val1vacio = false;
+                    operator = 7;
+                    String rest = pantalla.getText().toString();
+                    pantalla.setText("sin(" + rest + ")");
 
                 }
 
@@ -327,6 +557,15 @@ public class MainActivity extends AppCompatActivity {
                 break;
             case 4:
                 ope = val1 / val2;
+                break;
+            case 5:
+                ope = Math.cos(val1);
+                break;
+            case 6:
+                ope = Math.tan(val1);
+                break;
+            case 7:
+                ope = Math.sin(val1);
                 break;
             default:
                 ope = -10;
